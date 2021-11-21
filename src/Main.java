@@ -14,3 +14,15 @@ public class Main {
         customTank.printPosition();
     }
 }
+//При запуске выдаёт:
+//The Tank is at 100, 0 now.
+//The Tank is at 110, 10 now.
+//The Tank is at 220, 30 now.
+//При нажатии "Test"
+//1) test(TestTank)
+//org.junit.ComparisonFailure: expected:<The Tank is at -[100, 0 now.
+//The Tank is at 120, -10 now.
+//The Tank is at 170], 30 now.
+//> but was:<The Tank is at -[200, 0 now.
+//The Tank is at 120, -10 now.
+//The Tank is at -31], 30 now.

@@ -3,16 +3,31 @@ public class Tank {
     int dir;
     int fuel;
 
-    void goForward(int i) {
-        if(fuel <= i) {
-            i = fuel;
-        }
-        fuel-= i;
-        if (dir == 0) x += i;
-        else if (dir == 1) y += i;
-        else if (dir == 2) x -= i;
-        else y -= i;
+    public Tank() {
+        this(0, 0, 100);
+    }
 
+    public Tank(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
+
+    public Tank(int x, int y, int fuel) {
+        this.x = x;
+        this.y = y;
+        this.fuel = fuel;
+    }
+
+
+    public void goForward(int i) {
+        if (i < 0 && -i > -fuel)
+            i = -fuel;
+        else if (i > fuel)
+            i = fuel;
+        if (dir % 2 == 0) x += i;
+        else y += i;
+        fuel -= Math.abs(i);
     }
 
     void goBackward(int i) {
@@ -32,21 +47,6 @@ public class Tank {
         dir--;
         if (dir == -1) dir = 3;
     }
-
-    public Tank() {
-        x = 0;
-        y = 0;
-        fuel = 100;
-    }
-
-    public Tank(int x, int y) {
-        this();
-        this.x = x;
-        this.y = y;
-    }
-
-    public Tank(int x, int y, int fuel) {
-        this(x, y);
-        this.fuel = fuel;
-    }
 }
+
+
